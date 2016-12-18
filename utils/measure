@@ -1,0 +1,16 @@
+#!/bin/bash
+if [ -e test.mes ]; then
+    rm test.mes
+fi
+rm time.mes
+linecount=`wc -l test.log | cut -f1 -d " "`
+let num=$linecount/$1
+for((i=$num;$i<$linecount;i=$i+$num)) do
+    head -n $i test.log > test.part
+    bytes=`du -b test.part | cut -f1`
+    meret=`echo "scale=1; $bytes/(1024*1024)" | bc ;exit`
+    echo -n $meret >> time.mes
+    echo -n "	" >> time.mes
+    /usr/bin/time -o time.mes -a -f "%e" ./helo test.part test.out
+done
+gnuplot plot.script

@@ -1,0 +1,6 @@
+set terminal png xffffff
+set out "runtime.png"
+set title "Futásidő"
+set xlabel "Méret(Mb)"
+set ylabel "Idő (sec)"
+plot "time.mes" title "futásidő" with line
