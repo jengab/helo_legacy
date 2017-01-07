@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <ctype.h>
-#include <malloc.h>
 #include <stdlib.h>
 
 //unit test

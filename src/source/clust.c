@@ -1,6 +1,5 @@
 #include <math.h>
 #include <string.h>
-#include <malloc.h>
 #include <stdlib.h>
 
 #include "lists.h"
